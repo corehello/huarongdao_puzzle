@@ -72,8 +72,8 @@ func processCommand(b boardGame, s string) bool{
 func main() {
 	hrd := initGameWithFile(os.Args[1])
 	fmt.Println("welcome to 华容道")
-	hrd.render()
 	hrd.usage()
+	hrd.render()
 	for {
 		if processCommand(hrd, waitInput()) {
 			return
