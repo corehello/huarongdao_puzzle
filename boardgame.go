@@ -159,6 +159,7 @@ func (b boardGame)move(direction int, c *chessMan) bool {
 
 // render will draw current status, and most simple here, no mapping
 func (b boardGame)render() bool {
+	fmt.Println("Currunt status map is:")
 	for i:=0; i< len(b.bitmap); i++{
 		fmt.Println(b.bitmap[i])
 	}
@@ -186,7 +187,9 @@ func (b boardGame)save(path string) bool {
 
 func (b boardGame)usage() {
 	fmt.Println("Usage:")
-	fmt.Println("\tcommands: move <chessman number> | save filepath")
+	fmt.Println("\tcommands: move <chessman number> <direction>| save filepath")
+	fmt.Println("\t\tchessman number(non-zero) is in the status map")
+	fmt.Println("\t\tdirection: 1 -> up, 2 -> down, 3 -> left, 4 -> right")
 	fmt.Println("\texamples:")
 	fmt.Println("\t\tmove 9 4 | move 10 3 | move 7 2 | move 8 2")
 	fmt.Println("\t\tsave /tmp/hrdsave")
