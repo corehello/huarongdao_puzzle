@@ -191,11 +191,3 @@ func (b boardGame)usage() {
 	fmt.Println("\t\tmove 9 4 | move 10 3 | move 7 2 | move 8 2")
 	fmt.Println("\t\tsave /tmp/hrdsave")
 }
-
-//func(b boardGame)autoSolve() {
-	//solution := []string{}
-//	for b.checkWin() {
-		//b.searchStatus()
-		//b.moveNext()
-//	}
-//}
