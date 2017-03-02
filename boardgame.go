@@ -181,13 +181,13 @@ func (b boardGame)save(path string) bool {
 	}
 	w.Flush()
 	f.Sync()
-	fmt.Println("Save succennfully in: ", path)
+	fmt.Println("Save successfully in: ", path)
 	return true
 }
 
 func (b boardGame)usage() {
 	fmt.Println("Usage:")
-	fmt.Println("\tcommands: move <chessman number> <direction>| save filepath")
+	fmt.Println("\tcommands: move <chessman number> <direction>| save filepath | exit ")
 	fmt.Println("\t\tchessman number(non-zero) is in the status map")
 	fmt.Println("\t\tdirection: 1 -> up, 2 -> down, 3 -> left, 4 -> right")
 	fmt.Println("\texamples:")

@@ -58,6 +58,8 @@ func processCommand(b boardGame, s string) bool{
 			} else {
 				b.save(command[1])
 			}
+			return false
+		case "exit":
 			return true
 		default:
 			fmt.Println("Not support this command")
