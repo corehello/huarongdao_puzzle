@@ -23,7 +23,7 @@ File format:
 
 
 ## Project schedule:
-* About 4 PM 1 March, I receive this question from the email.
+* About 4 PM 1 March 2017, I receive this question from the email.
 * Before implement this, I google "华容道" to make it clear.
 * About 5 PM, I try to implement this
   * For this program, I just use INIT then REPL
@@ -34,12 +34,21 @@ File format:
 * After 6 hours， about 11 PM， 1 March, I implement the main feature
   and still need debug the checkCollision function and move function
 
-* At 11 AM, 2 March, the program finally work well, and can receive my command
+* At 11 AM, 2 March 2017, the program finally work well, and can receive my command
   "move" to rerender the board
 * From 12 AM, I decide to implement some details,
   for example: save current status to a file
 * About 12:30 AM, the save feature is done, and do some tests to make sure It will not crash
 
+* About 2 PM 3 March 2017, I start to implement the most complex part, "auto solve" part.
+* About 4 PM 3 March 2017, almost done, but met the step loop issue.
+* After lunch, about 11:30 PM 3 March 2017, I am checking the loop bug.
+  Then I add all passed status into a hash map.
+  And make possible steps if the step will not cause a passed status.
+* About 00:30 4 March 2017, Finally it work.
+  In the following 1 hour, I test the program to avoid panic.
+  I also make the pick next step randomization.
+  And pprof enabled.
 
 ## Issues met:
 * c.location can not be update:
@@ -48,3 +57,6 @@ File format:
 * Out of index:
     when checkCollision and move, met this
   solution: take care of index to make this impossible
+* loop for some steps pattern:
+    Add all passed status into a hash map.
+    Make possible steps if the step will not cause a passed status.
