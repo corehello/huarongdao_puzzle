@@ -5,6 +5,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"runtime/pprof"
 )
 
 
@@ -62,8 +63,7 @@ func processCommand(b boardGame, s string) bool{
 		case "exit":
 			return true
 		case "solve":
-			autoSolve(b)
-			return false
+			return autoSolve(b)
 		default:
 			fmt.Println("Not support this command")
 		}
@@ -75,6 +75,12 @@ func processCommand(b boardGame, s string) bool{
 }
 
 func main() {
+	f, err := os.Create("hrdcpuprofile")
+  if err != nil {
+  	fmt.Println(err)
+  }
+  pprof.StartCPUProfile(f)
+  defer pprof.StopCPUProfile()
 	hrd := initGameWithFile(os.Args[1])
 	fmt.Println("welcome to 华容道")
 	hrd.usage()
@@ -82,9 +88,11 @@ func main() {
 	for {
 		if hrd.checkWin() {
 			fmt.Println("you win")
-			return 
+			return
 		} else {
-			processCommand(hrd, waitInput())
+			if processCommand(hrd, waitInput()) {
+				return
+			}
 		}
 		hrd.render()
 	}
