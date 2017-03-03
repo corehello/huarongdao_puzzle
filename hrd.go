@@ -13,7 +13,7 @@ const (
 	DST_CHESSMAN = 2
 )
 
-var 	DST_LOCATION [2]int = [2]int {3,1}
+var 	DST_LOCATION [2]int = [2]int{3,1}
 
 // read boardGame status from a file
 
@@ -61,6 +61,9 @@ func processCommand(b boardGame, s string) bool{
 			return false
 		case "exit":
 			return true
+		case "solve":
+			autoSolve(b)
+			return false
 		default:
 			fmt.Println("Not support this command")
 		}
@@ -77,11 +80,11 @@ func main() {
 	hrd.usage()
 	hrd.render()
 	for {
-		if processCommand(hrd, waitInput()) {
-			return
-		}
 		if hrd.checkWin() {
 			fmt.Println("you win")
+			return 
+		} else {
+			processCommand(hrd, waitInput())
 		}
 		hrd.render()
 	}
