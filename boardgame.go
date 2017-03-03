@@ -31,8 +31,9 @@ func newBoardGame(height, width int) boardGame {
 
 // check if player win, hardcode now.
 func (b boardGame)checkWin() bool {
+	fmt.Println("Checking win? ......")
 	for i:=0; i<len(DST_LOCATION);i++ {
-		if b.chessmans[DST_CHESSMAN].location[i] != DST_LOCATION[i] {
+		if b.chessmans[DST_CHESSMAN-1].location[i] != DST_LOCATION[i] {
 			return false
 		}
 	}
@@ -62,7 +63,7 @@ func (b boardGame)checkCollision(c *chessMan, direction int) bool {
 			}
 		}
 	case 2:
-		if c.location[0] + c.height  > b.height {
+		if c.location[0] + c.height  >= b.height {
 			return true
 		} else {
 			r := 0
@@ -94,7 +95,7 @@ func (b boardGame)checkCollision(c *chessMan, direction int) bool {
 			}
 		}
 	case 4:
-		if c.location[1]  + c.width > b.width {
+		if c.location[1]  + c.width >= b.width {
 			return true
 		} else {
 			r := 0
