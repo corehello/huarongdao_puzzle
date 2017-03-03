@@ -3,7 +3,8 @@
 I first try to implement this by a question of interview
 
 Usage:
-  go run *.go ./board
+  go build -o hrd *.go
+  ./hrd ./board
 
 File format:
 5 4               // board height, width
