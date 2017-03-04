@@ -185,13 +185,3 @@ func (b boardGame)save(path string) bool {
 	fmt.Println("Save successfully in: ", path)
 	return true
 }
-
-func (b boardGame)usage() {
-	fmt.Println("Usage:")
-	fmt.Println("\tcommands: move <chessman number> <direction>| save filepath | exit ")
-	fmt.Println("\t\tchessman number(non-zero) is in the status map")
-	fmt.Println("\t\tdirection: 1 -> up, 2 -> down, 3 -> left, 4 -> right")
-	fmt.Println("\texamples:")
-	fmt.Println("\t\tmove 9 4 | move 10 3 | move 7 2 | move 8 2")
-	fmt.Println("\t\tsave /tmp/hrdsave")
-}
